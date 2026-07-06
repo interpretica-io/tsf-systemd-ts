@@ -1,0 +1,18 @@
+/** @mainpage
+
+This suite exercises tsf-systemd - reading the systemd state and
+service-hardening posture of the Test Agent it runs on, over
+libsystemd's sd-bus:
+
+- @ref systemd-list - snapshot the units and read one active service's
+  hardening properties (NoNewPrivileges, ProtectSystem, the capability
+  bounding set, ...);
+- @ref systemd-audit - read a set of services as a sandboxing posture
+  through tsf-cybersec and log it.
+
+It is read-only - it starts, stops and changes no unit. What units
+exist is the host's to decide, so the suite asserts no particular unit:
+a host without systemd skips cleanly, and the audit is informational
+(a stock host runs many services with the systemd defaults).
+
+*/

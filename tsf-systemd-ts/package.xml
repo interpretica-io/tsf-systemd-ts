@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<package version="1.0">
+    <description>tsf-systemd demonstration suite</description>
+
+    <!-- @page systemd-ts systemd Suite
+          @objective Exercise tsf-systemd against the systemd of the
+                     agent the suite runs on.
+
+          @par Test Groups:
+          - @ref systemd-list - Enumerate units and read one service's hardening
+          - @ref systemd-audit - Read the service-hardening posture
+
+          @par Notes:
+          - Reading runs on the agent, in its RPC server, over
+            libsystemd's sd-bus. It is read-only.
+          - What units exist is up to the host, so the tests assert no
+            particular unit: a host without systemd is a clean skip, and
+            the audit is informational (a stock host is mostly unconfined).
+          - The agent must carry libsystemd with its headers and a
+            running systemd.
+    -->
+
+    <author mailto="maxim.menshikov@interpretica.io" />
+
+    <session track_conf="silent">
+        <prologue>
+            <script name="prologue">
+                <objective>
+                    Prepare the test environment.
+                    @md
+                </objective>
+            </script>
+        </prologue>
+        <epilogue>
+            <script name="epilogue">
+                <objective>
+                    Finalize the test environment.
+                    @md
+                </objective>
+            </script>
+        </epilogue>
+        <run>
+            <package name="systemd" />
+        </run>
+    </session>
+</package>

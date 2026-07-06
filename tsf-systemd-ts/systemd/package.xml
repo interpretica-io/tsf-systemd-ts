@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<package version="1.0">
+    <description>systemd units and hardening</description>
+    <author mailto="maxim.menshikov@interpretica.io" />
+    <session track_conf="silent">
+        <prologue><script name="prologue"><objective>Prepare the systemd group.</objective></script></prologue>
+        <epilogue><script name="epilogue"><objective>Finalize the systemd group.</objective></script></epilogue>
+        <run><script name="list"><objective>Enumerate units and read one service's hardening.</objective></script></run>
+        <run><script name="audit"><objective>Read the service-hardening posture.</objective></script></run>
+    </session>
+</package>
