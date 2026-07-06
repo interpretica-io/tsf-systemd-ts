@@ -27,7 +27,6 @@ main(int argc, char **argv)
     te_vec units = TE_VEC_INIT(tapi_systemd_unit);
     const tapi_systemd_unit *u;
     unsigned int n;
-    te_errno rc;
 
     TEST_START;
 
@@ -65,7 +64,7 @@ main(int argc, char **argv)
     {
         tapi_systemd_hardening h;
 
-        rc = tapi_systemd_hardening(sess.pco, a_service, &h);
+        rc = tapi_systemd_hardening_get(sess.pco, a_service, &h);
         if (rc != 0)
             TEST_VERDICT("hardening read of %s failed (%r)", a_service, rc);
         if (!h.present)

@@ -27,7 +27,6 @@ main(int argc, char **argv)
     tsapi_systemd_session sess;
     tapi_cybersec_report report;
     bool report_ready = false;
-    te_errno rc;
 
     TEST_START;
 
